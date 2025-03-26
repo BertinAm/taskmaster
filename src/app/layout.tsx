@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SessionProvider from "@/components/providers/SessionProvider";
+import FaviconHandler from "@/components/FaviconHandler";
 
 // Define Work Sans font
 const workSans = Work_Sans({
@@ -55,14 +57,17 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon.svg" />
       </head>
       <body className={`${workSans.variable} font-work-sans`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange={false}
-        >
-          {children}
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange={false}
+          >
+            <FaviconHandler />
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

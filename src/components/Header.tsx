@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import AuthStatus from "./auth/AuthStatus";
 
 const navLinks = [
   { name: "Features", href: "#features" },
@@ -57,12 +58,7 @@ export default function Header() {
         {/* Actions */}
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <Link href="/login" className="btn-secondary">
-            Log in
-          </Link>
-          <Link href="/signup" className="btn-primary">
-            Get Started
-          </Link>
+          <AuthStatus />
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,7 +107,7 @@ export default function Header() {
                   Log in
                 </Link>
                 <Link
-                  href="/signup"
+                  href="/register"
                   className="btn-primary text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

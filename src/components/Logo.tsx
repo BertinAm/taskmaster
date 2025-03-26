@@ -5,20 +5,27 @@ import { useTheme } from "./ThemeProvider";
 interface LogoProps {
   height?: number;
   width?: number;
+  size?: number;
+  className?: string;
 }
 
-export default function Logo({ height = 32, width = 160 }: LogoProps) {
+export default function Logo({ height, width, size = 32, className = "" }: LogoProps) {
   const { theme } = useTheme();
   const textColor = theme === "dark" ? "#FFFFFF" : "#333333";
   const accentColor = "#18cb96"; // Primary color
+  
+  // If size is provided, use it to calculate height and width
+  const finalHeight = height || size;
+  const finalWidth = width || size * 5; // Maintain aspect ratio
 
   return (
     <svg
-      width={width}
-      height={height}
+      width={finalWidth}
+      height={finalHeight}
       viewBox="0 0 240 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       {/* Text part */}
       <text
