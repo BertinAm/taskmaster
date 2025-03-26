@@ -43,7 +43,7 @@ export default function BackgroundAnimations({
         return (
           <>
             <motion.div
-              className={`absolute top-1/4 right-1/4 h-96 w-96 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-${getOpacityClass(opacityMap[intensity].base)}`}
+              className={`absolute top-1/4 right-1/4 h-96 w-96 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-[${opacityMap[intensity].base}]`}
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [
@@ -59,7 +59,7 @@ export default function BackgroundAnimations({
               }}
             />
             <motion.div
-              className={`absolute bottom-1/3 left-1/3 h-64 w-64 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-${getOpacityClass(opacityMap[intensity].accent)}`}
+              className={`absolute bottom-1/3 left-1/3 h-64 w-64 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-[${opacityMap[intensity].accent}]`}
               animate={{
                 scale: [1.1, 0.9, 1.1],
                 opacity: [
@@ -76,7 +76,7 @@ export default function BackgroundAnimations({
               }}
             />
             <motion.div
-              className={`absolute top-2/3 right-1/2 h-48 w-48 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-${getOpacityClass(opacityMap[intensity].base * 0.8)}`}
+              className={`absolute top-2/3 right-1/2 h-48 w-48 rounded-full ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-[${opacityMap[intensity].base * 0.8}]`}
               animate={{
                 scale: [0.9, 1.1, 0.9],
                 opacity: [
@@ -99,7 +99,7 @@ export default function BackgroundAnimations({
         return (
           <div className="absolute inset-0">
             <div
-              className={`absolute inset-0 ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-${getOpacityClass(opacityMap[intensity].base)}`}
+              className={`absolute inset-0 ${primaryColor ? 'bg-primary' : 'bg-gray-500'} opacity-[${opacityMap[intensity].base}]`}
               style={{
                 backgroundImage:
                   "radial-gradient(circle, currentColor 1px, transparent 1px)",
